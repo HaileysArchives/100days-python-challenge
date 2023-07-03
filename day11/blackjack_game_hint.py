@@ -1,7 +1,7 @@
 import random
 import math
 import os 
-# import art
+# import blackjack.art
 
 def deal_card(): 
     """Returns a random card from the deck."""
@@ -20,8 +20,8 @@ for _ in range(1):
 # user_cards += new_card => warning!!! (typeerror) => actually the same .extend() function. 
 # user_cards.extend(new_card) => how to .expend() function? It needs list type. so we change the "new_card = [deal_card()]" that is correct. but we only want single item, not a list, .append() functions use possible. 
 
-user_cards.append(deal_card())
-computer_cards.append(deal_card())
+# user_cards.append(deal_card())
+# computer_cards.append(deal_card())
 
 print(user_cards)
 print(computer_cards)
@@ -103,6 +103,6 @@ restart = input("You wanna restart the game? 'yes' or 'no. ")
 if restart == "yes":
     os.system('cls')
     # blackjack()
-    # print(art.logo)
+    # print(blackjack_art.logo)
 elif restart == "no":
     print("The end game.")
