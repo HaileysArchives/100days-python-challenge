@@ -25,7 +25,7 @@ def check_answer(guess, a_followers, b_followers):
   else:
     return guess == "b"
 
-def game():
+def play_game():
   print(logo)
   score = 0
   game_should_continue = True
@@ -57,7 +57,7 @@ def game():
       game_should_continue = False
       print(f"Sorry, that's wrong. Final score: {score}")
 
-game()
+play_game()
 
 '''
 
