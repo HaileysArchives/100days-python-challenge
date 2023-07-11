@@ -32,25 +32,28 @@ resources = {
 
 user_menu = input("What would you like? (espresso/latte/cappuccino) ")
 
+
 def write_report():
     return f"Water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}"
 
-if user_menu == "report":
-    print(write_report())
-    exit()  # Exit the program after printing the report
-
-menu_water = MENU[user_menu]['ingredients']["water"]
-menu_milk = MENU[user_menu]['ingredients']["milk"]
-menu_coffee = MENU[user_menu]['ingredients']["coffee"]
 
 def check_resources():
-    if resources['water'] < menu_water:
-        return "Sorry, there is not enough water."
-    elif resources['milk'] < menu_milk:
-        return "Sorry, there is not enough milk."
-    elif resources['coffee'] < menu_coffee:
-        return "Sorry, there is not enough coffee."
+    if user_menu == "report":
+        print(write_report())
     else:
-        return True
+        # Rest of the code for preparing the requested menu item
+        menu_water = MENU[user_menu]['ingredients']["water"]
+        menu_milk = MENU[user_menu]['ingredients']["milk"]
+        menu_coffee = MENU[user_menu]['ingredients']["coffee"]
+
+        if resources['water'] < menu_water:
+            return "Sorry, there is not enough water."
+        elif resources['milk'] < menu_milk:
+            return "Sorry, there is not enough milk."
+        elif resources['coffee'] < menu_coffee:
+            return "Sorry, there is not enough coffee."
+        else:
+            return f"Here is {user_menu}. Enjoy!"
 
 print(check_resources())
+
