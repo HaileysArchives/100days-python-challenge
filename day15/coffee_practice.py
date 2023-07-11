@@ -36,6 +36,28 @@ money = 0
 def write_report():
     return f"Water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']} \nMoney: ${money}"
 
+
+# 6. Process coins.
+
+def process_coins():
+    print("Please insert coins.")
+
+    quarters_count = int(input("How many quarters? "))
+    dimes_count = int(input("How many dimes? "))
+    nickels_count = int(input("How many nickels? "))
+    pennies_count = int(input("How many pennies? "))
+
+    global total 
+    total = float((0.25 * quarters_count) + (0.10 * dimes_count) + (0.05 * nickels_count) + (0.01 * pennies_count))
+    price = float(MENU[user_menu]['cost'])
+
+    left = round((total - price), 2)
+    if left >= 0:
+        print(f"Here is ${left} in change.")
+    else:
+        print("")
+
+
 # 4. Check resources sufficient? 
 
 def check_resources():
@@ -51,7 +73,10 @@ def check_resources():
         menu_water = MENU[user_menu]['ingredients']["water"]
         menu_milk = MENU[user_menu]['ingredients']["milk"]
         menu_coffee = MENU[user_menu]['ingredients']["coffee"]
+        global menu_cost
         menu_cost = float(MENU[user_menu]["cost"])
+        
+        process_coins()
 
         if resources['water'] < menu_water:
             print("Sorry, there is not enough water.")
@@ -59,31 +84,18 @@ def check_resources():
             print("Sorry, there is not enough milk.")
         elif resources['coffee'] < menu_coffee:
             print("Sorry, there is not enough coffee.")
-        else:
+        elif total >= menu_cost:
             resources['water'] -= menu_water
             resources['milk'] -= menu_milk
             resources['coffee'] -= menu_coffee
             money += menu_cost
             print(f"Here is your {user_menu}. Enjoy!")
+        else:
+            print("Sorry that's not enough money. Money refunded.")
+
 
 while True:
     check_resources()
 
-
-# Process coins.
-# print("Please insert coins.")
-
-# quarters_count = input("How many quarters? ")
-# dimes_count = input("How many dimes? ")
-# nickles_count = input("How many nickles? ")
-# pennies_count = input("How many pennies? ")
-# total = (0.25 * quarters_count) + (0.10 * dimes_count) + (0.05 * nickles_count) + (0.01 * pennies_count)
-# price = int(MENU[user_menu]['cost'])
-
-# change = print(f"Here is ${total - price} in change.")
-
-# 6. Check transaction successful? 
-# "Sorry that's not enough money. Money refunded."
-# If the user has inserted too much money, the machine should offer change. "Here is $2.45 dollars in change."
 
 
