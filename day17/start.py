@@ -49,7 +49,14 @@ class Car:
 
 my_car = Car(5)
 
+# ============================
+class Car:
+    def enter_race_mode(self): # method
+        self.seats = 2
 
+my_car.enter_race_mode()
+
+# ==============================
 class User:
 
     def __init__(self, user_id, username): # 초기화 기능
