@@ -30,6 +30,10 @@ quiz = QuizBrain(question_bank)
 
 while quiz.still_has_question():
     quiz.next_question()
+score = quiz.score
+total = len(quiz.questions_list)
+print("You've completed the quiz.🎊")
+print(f"Your final score was: {score}/{total}.")
 
  
 
