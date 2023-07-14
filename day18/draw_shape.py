@@ -8,9 +8,8 @@ tim = Turtle()
 
 tim.shape("turtle")
 tim.width(3)
-color = ["red", "green", "hotpink", "black"]
-random_color = random.choice(color)
-tim.color(random_color)
+# color = ["red", "green", "hotpink", "black", "blue", "purple", "gray"]
+# random_color = random.choice(color)
 
 # tim.forward(100)
 # tim.left(120)
@@ -35,13 +34,28 @@ tim.color(random_color)
 #         tim.left(360/angle)
 #     angle += 1
 
+def change_color():
+    R = random.random()
+    B = random.random()
+    G = random.random()
+
+    tim.color(R, G, B)
+
 def draw_shape(num_sides):
+    angle = 360 / num_sides
     for _ in range(num_sides):
-        angle = 360 / num_sides
         tim.forward(100)
         tim.right(angle)
+        change_color()
 
-draw_shape(3)
+
+# sides = [3, 4, 5, 6, 7, 8]
+
+# for side in sides:
+#     draw_shape(side)
+
+for shape_side_n in range(3, 11):
+    draw_shape(shape_side_n)
 
 screen = Screen()
 screen.exitonclick()
