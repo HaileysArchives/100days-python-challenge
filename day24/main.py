@@ -17,8 +17,6 @@ import os
 currentPath = os.getcwd() # Get the current working directoey (cwd)
 
 print(currentPath) # print path
-os.chdir(currentPath) # change path
-
 
 with open("my_file.txt") as file:
     file.write("New text.") # Error : 파일을 읽기 전용 모드로 열었기 때문 
