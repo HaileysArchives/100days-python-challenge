@@ -1,0 +1,15 @@
+import pandas
+
+data = pandas.read_csv("day25/weather_data.csv")
+print(type(data))
+
+# The two primary data structures of pandas, Series and DataFrame. 
+# Type Series is basically similar to List. (시리즈 타입은 기본적으로 리스트와 같은 것이다. 표에서 한 열과 같은 것이라고 할 수 있다. 즉 표는 기본적으로 판다스에서 데이터 프레임이고 모든 각각의 개별 열들은 리스트 같은 일종의 시리즈이다)
+
+# Convert Type (데이터프레임을 아래와 같은 파일 형태로 변환시킬 수도 있다)
+# DataFrame.to_json
+# DataFrame.to_html
+# DataFrame.to_excel
+
+data_dict = data.to_dict() # 딕셔너리 유형으로 변환 
+print(data_dict) 

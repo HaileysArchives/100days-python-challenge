@@ -22,8 +22,43 @@ with open("day25/weather_data.csv") as data_file:
             temperatures.append(int(row[1])) # Convert integer type. 
     print(temperatures) 
 
+
+# 위의 import csv를 사용해서 쓴 긴 줄의 코드를 import pandas를 이용해서 코드의 길이를 훨씬 줄일 수 있다. 
 import pandas
 
 data = pandas.read_csv("day25/weather_data.csv") # read csv file. (Just one step code)
 print(data)
 print(data["temp"]) # 열의 이름을 지정하면 데이터를 찾는 방법을 자동적으로 알 수 있다. 
+
+data_dict = data.to_dict() # 딕셔너리 유형으로 변환 
+print(data_dict) 
+
+temp_list = data["temp"].to_list() # 파이썬의 원시 데이터 형태 (리스트 타입)
+print(len(temp_list))
+
+# Challenge: Calculate the average temperature.
+
+temp_sum = sum(temp_list)
+print(f"average: {temp_sum / len(temp_list)}")
+
+# average = sum(temp_list) / len(temp_list) 
+# print(average)
+
+# Method mean (average) 
+print(data["temp"].mean()) 
+
+# print(max(data["temp"]))
+print(data["temp"].max())
+
+# Get Data in Columns (열을 선택하는 방법)
+print(data["condition"]) 
+print(data.condition) # 판다스가 각각의 열과 칼럼명을 가져가서 속성값으로 변환하기 때문에 이전 방식과 같은 결과값을 출력한다
+
+# Get Data in Row
+print(data[data.day == "Monday"])
+print(data[data["day"] == "Monday"])
+
+# Challenge: Print the row of data whtch had the highest temperature.
+# max_temp = data["temp"].max()
+# print(data[data["temp"] == max_temp])
+print(data[data.temp == data.temp.max()])
