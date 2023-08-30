@@ -58,7 +58,6 @@ print(data.condition) # 판다스가 각각의 열과 칼럼명을 가져가서 
 print(data[data.day == "Monday"])
 print(data[data["day"] == "Monday"])
 
-# Challenge: Print the row of data whtch had the highest temperature.
 # max_temp = data["temp"].max()
 # print(data[data["temp"] == max_temp])
 print(data[data.temp == data.temp.max()])

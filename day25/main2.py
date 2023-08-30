@@ -33,3 +33,4 @@ data2 = pandas.DataFrame(data_dict)
 print(data2) # 딕셔너리의 값을 사용해서 표가 만들어진다 
 
 data2.to_csv("day25/new_data.csv") # Convert CSV file. 
+
